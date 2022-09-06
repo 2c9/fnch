@@ -1,0 +1,52 @@
+---
+- name: Configure proxy
+  hosts: fnch
+  remote_user: root
+
+  tasks:
+
+    - name: Install nginx
+      apt:
+        name:  [ nginx, snapd ]
+        update_cache: yes
+        state: present
+    
+    - name: Install certbot
+      snap:
+        name: certbot
+        classic: yes
+    
+    - name: Creates directory
+      file:
+        path: /etc/letsencrypt/live/wsr39.ru
+        state: directory
+    
+    - name: Copy wildcard cert
+      copy:
+        src: /home/dmitry/nginx_fnch2022/fullchain.pem
+        dest: /etc/letsencrypt/live/wsr39.ru/fullchain.pem
+    
+    - name: Copy private key
+      copy:
+        src: /home/dmitry/nginx_fnch2022/privkey.pem
+        dest: /etc/letsencrypt/live/wsr39.ru/privkey.pem
+
+    - name: Copy nginx ssl config
+      copy:
+        src: snakeoil.conf
+        dest: /etc/nginx/snippets/snakeoil.conf
+      notify:
+        - Reload nginx
+    
+    - name: Copy nginx config
+      copy:
+        src: nginx.conf
+        dest: /etc/nginx/sites-available/default
+      notify:
+        - Reload nginx
+  
+  handlers:
+    - name: Reload nginx
+      service:
+        name: nginx
+        state: reloaded

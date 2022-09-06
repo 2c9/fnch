@@ -1,0 +1,43 @@
+testbed:
+  name: Lab at Thu 21:24 PM
+devices:
+  terminal_server:
+    os: linux
+    type: server
+    credentials:
+      default:
+        username: admin 
+        password: P@ssw0rd
+    connections:
+      cli:
+        protocol: ssh
+        ip: 192.168.200.10
+        port: 2222
+  iosv-0:
+    os: ios
+    type: router
+    series: iosv
+    credentials:
+      default:
+        username: cisco
+        password: cisco
+    connections:
+      defaults:
+        class: unicon.Unicon
+      a:
+        protocol: telnet
+        proxy: terminal_server
+        command: open /TestLab/iosv-0/0
+topology:
+  iosv-0:
+    interfaces:
+      Loopback0:
+        type: loopback
+      GigabitEthernet0/0:
+        type: ethernet
+      GigabitEthernet0/1:
+        type: ethernet
+      GigabitEthernet0/2:
+        type: ethernet
+      GigabitEthernet0/3:
+        type: ethernet
