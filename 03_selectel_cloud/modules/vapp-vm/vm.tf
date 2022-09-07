@@ -21,7 +21,7 @@ resource "vcd_vapp_vm" "vm" {
   # Init script for customization and changing sysadmin's password
   customization {
     enabled    = true
-    initscript = templatefile("${path.cwd}/initialization.sh", { password = "Pa$$w0rd" })
+    initscript = templatefile("${path.cwd}/initialization.sh", { password = random_string.sysadmin_passwd.result })
   }
 
   # Connecting to VCD network
@@ -32,4 +32,6 @@ resource "vcd_vapp_vm" "vm" {
       ip_allocation_mode = "POOL"
       is_primary         = true
   }
+
+  depends_on = [ random_string.sysadmin_passwd ]
 }
