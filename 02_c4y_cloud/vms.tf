@@ -1,3 +1,5 @@
+# Используем модуль vapp-vm для развертывания нужного колличества CML2
+# TF_CML_COUNT находится в ./variables.tf
 module "vapp-vm" {
     count                 = var.TF_CML_COUNT
     source                = "./modules/vapp-vm"

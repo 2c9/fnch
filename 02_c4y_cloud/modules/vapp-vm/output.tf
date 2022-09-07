@@ -1,3 +1,4 @@
+# Выводим данные о CML2
 output "properties" {
    value = {
       "IP address" = vcd_vapp_vm.vm.network[0].ip

@@ -45,6 +45,7 @@ variable "TF_LAN_NAME" {
 }
 
 variable "TF_DOMAIN_NAME" {
-  type = string
-  default = "wsr39.ru"
+    description = "Доменное имя для подключения к CML2 из вне"
+    type = string
+    default = "wsr39.ru"
 }
