@@ -1,3 +1,5 @@
 pyats/.venv
 *.tfstate
 *.tfstate.backup
+.terraform
+.terraform.lock.hcl

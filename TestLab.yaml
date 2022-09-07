@@ -16,6 +16,7 @@ nodes:
       hostname iosv-0
       !
       ip domain name kp11.ru
+      ip name-server 8.8.8.8
       !
       username cisco password 0 cisco
       !
