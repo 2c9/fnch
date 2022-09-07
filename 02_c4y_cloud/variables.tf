@@ -2,7 +2,7 @@
 variable "TF_CML_COUNT" {
     description = "Колличество CML2"
     type = number
-    default = 1
+    default = 2
 }
 
 # Переменные для работы с VCD

@@ -1,46 +1,11 @@
-# Ref: https://registry.terraform.io/providers/vmware/vcd/latest/docs/data-sources/vapp
-resource "vcd_vapp_vm" "vm1" {
-  vapp_name     = data.vcd_vapp.vapp.name
-  name          = "cml2-lab-01"
-  catalog_name  = var.TF_CATALOG_NAME
-  template_name = var.TF_TEMPLATE_NAME
-  memory        = var.TF_VM_RAM
-  cpus          = var.TF_VM_CPUS
-  cpu_cores     = var.TF_VM_CPU_CORES
-
-  expose_hardware_virtualization = true
-
-  network {
-      name               = "${var.TF_LAN_NAME}"
-      adapter_type       = "VMXNET3"
-      type               = "org"
-      ip_allocation_mode = "POOL"
-      is_primary         = true
-  }
-  
-  depends_on = [ data.vcd_vapp_org_network.vapp-net ]
-
-}
-
-resource "vcd_vapp_vm" "vm2" {
-  vapp_name     = data.vcd_vapp.vapp.name
-  name          = "cml2-lab-02"
-  catalog_name  = var.TF_CATALOG_NAME
-  template_name = var.TF_TEMPLATE_NAME
-  memory        = var.TF_VM_RAM
-  cpus          = var.TF_VM_CPUS
-  cpu_cores     = var.TF_VM_CPU_CORES
-
-  expose_hardware_virtualization = true
-
-  network {
-      name               = "${var.TF_LAN_NAME}"
-      adapter_type       = "VMXNET3"
-      type               = "org"
-      ip_allocation_mode = "POOL"
-      is_primary         = true
-  }
-  
-  depends_on = [ data.vcd_vapp_org_network.vapp-net ]
-
+# Используем модуль vapp-vm для развертывания нужного колличества CML2
+# TF_CML_COUNT находится в ./variables.tf
+module "vapp-vm" {
+    count                 = var.TF_CML_COUNT
+    source                = "./modules/vapp-vm"
+    TF_VAPP_NAME          = "cml240"
+    TF_VM_NAME            = "cml2-lab-${count.index}"
+    TF_TEMPLATE_NAME      = "cml240"
+    TF_CATALOG_NAME       = "kp11"
+    TF_LAN_NAME           = "cml2-nsalab-tf-project.PROD"
 }
