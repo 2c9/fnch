@@ -49,8 +49,6 @@ terraform destroy -var-file="E:\creds\creds-cy.tfvars"
 }
 ```
 
-> Манифест меняет пароль от sysadmin на Pa$$w0rd. 
-
 Подключение к VM с Bastion host
 
 ```bash
@@ -85,8 +83,6 @@ terraform destroy -var-file="E:\creds\creds-sl.tfvars"
     } ]
 }
 ```
-
-> Манифест меняет пароль от sysadmin на Pa$$w0rd. 
 
 Подключение к VM с Bastion host
 
