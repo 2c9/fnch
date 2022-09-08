@@ -37,6 +37,13 @@ terraform destroy -var-file="E:\creds\creds-cy.tfvars"
 
 > Манифест меняет пароль от sysadmin на Pa$$w0rd. 
 
+Подключение к VM с Bastion host
+
+```bash
+ssh sysadmin@192.168.200.10 -p 1122
+ssh sysadmin@192.168.200.11 -p 1122
+```
+
 ## 03_selectel_cloud
 
 > Note: Перед вызовом **init** нужно включить **VPN**. После установки провайдеров, необходимо его выключить.
@@ -52,6 +59,13 @@ terraform destroy -var-file="E:\creds\creds-sl.tfvars"
 ```
 
 > Манифест меняет пароль от sysadmin на Pa$$w0rd. 
+
+Подключение к VM с Bastion host
+
+```bash
+ssh sysadmin@192.168.100.10 -p 1122
+ssh sysadmin@192.168.100.11 -p 1122
+```
 
 ## TestLab.yaml
 
