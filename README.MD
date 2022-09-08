@@ -37,14 +37,16 @@ terraform destroy -var-file="E:\creds\creds-cy.tfvars"
 
 Вывод манифеста
 ```json
-properties = [ {
-        "vm-uri" = "URI for CML2"
-        "cml2-user" = "CML2 user"
-        "cml2-password" = "CML2 password"
-        "ip-address" = "VM's IPv4 address"
-        "os-user" = "OS system user"
-        "os-password" = "OS system password"
-    }]
+{
+    "properties": [ {
+        "vm-uri": "URI for CML2",
+        "cml2-user": "CML2 user",
+        "cml2-password": "CML2 password",
+        "ip-address": "VM's IPv4 address",
+        "os-user": "OS system user",
+        "os-password": "OS system password"
+    } ]
+}
 ```
 
 > Манифест меняет пароль от sysadmin на Pa$$w0rd. 
@@ -72,14 +74,16 @@ terraform destroy -var-file="E:\creds\creds-sl.tfvars"
 
 Вывод манифеста
 ```json
-properties = [ {
-        "vm-uri" = "URI for CML2"
-        "cml2-user" = "CML2 user"
-        "cml2-password" = "CML2 password"
-        "ip-address" = "VM's IPv4 address"
-        "os-user" = "OS system user"
-        "os-password" = "OS system password"
-    }]
+{
+    "properties": [ {
+        "vm-uri": "URI for CML2",
+        "cml2-user": "CML2 user",
+        "cml2-password": "CML2 password",
+        "ip-address": "VM's IPv4 address",
+        "os-user": "OS system user",
+        "os-password": "OS system password"
+    } ]
+}
 ```
 
 > Манифест меняет пароль от sysadmin на Pa$$w0rd. 
