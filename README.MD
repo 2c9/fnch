@@ -35,6 +35,18 @@ terraform apply -var-file="E:\creds\creds-cy.tfvars"
 terraform destroy -var-file="E:\creds\creds-cy.tfvars"
 ```
 
+Вывод манифеста
+```json
+properties = [ {
+        "vm-uri" = "URI для входа в CML2"
+        "cml2-user" = "Пользователь для входа в CML2"
+        "cml2-password" = "Пароль для входа в CML2"
+        "ip-address" = "IP адресс VM"
+        "os-user" = "Пользователь для входа в VM"
+        "os-password" = "Пароль для входа в VM"
+    }]
+```
+
 > Манифест меняет пароль от sysadmin на Pa$$w0rd. 
 
 Подключение к VM с Bastion host
@@ -56,6 +68,18 @@ terraform init
 terraform plan -var-file="E:\creds\creds-sl.tfvars"
 terraform apply -var-file="E:\creds\creds-sl.tfvars"
 terraform destroy -var-file="E:\creds\creds-sl.tfvars"
+```
+
+Вывод манифеста
+```json
+properties = [ {
+        "vm-uri" = "URI для входа в CML2"
+        "cml2-user" = "Пользователь для входа в CML2"
+        "cml2-password" = "Пароль для входа в CML2"
+        "ip-address" = "IP адресс VM"
+        "os-user" = "Пользователь для входа в VM"
+        "os-password" = "Пароль для входа в VM"
+    }]
 ```
 
 > Манифест меняет пароль от sysadmin на Pa$$w0rd. 
