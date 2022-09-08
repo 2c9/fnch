@@ -38,12 +38,12 @@ terraform destroy -var-file="E:\creds\creds-cy.tfvars"
 Вывод манифеста
 ```json
 properties = [ {
-        "vm-uri" = "URI для входа в CML2"
-        "cml2-user" = "Пользователь для входа в CML2"
-        "cml2-password" = "Пароль для входа в CML2"
-        "ip-address" = "IP адресс VM"
-        "os-user" = "Пользователь для входа в VM"
-        "os-password" = "Пароль для входа в VM"
+        "vm-uri" = "URI for CML2"
+        "cml2-user" = "CML2 user"
+        "cml2-password" = "CML2 password"
+        "ip-address" = "VM's IPv4 address"
+        "os-user" = "OS system user"
+        "os-password" = "OS system password"
     }]
 ```
 
@@ -73,12 +73,12 @@ terraform destroy -var-file="E:\creds\creds-sl.tfvars"
 Вывод манифеста
 ```json
 properties = [ {
-        "vm-uri" = "URI для входа в CML2"
-        "cml2-user" = "Пользователь для входа в CML2"
-        "cml2-password" = "Пароль для входа в CML2"
-        "ip-address" = "IP адресс VM"
-        "os-user" = "Пользователь для входа в VM"
-        "os-password" = "Пароль для входа в VM"
+        "vm-uri" = "URI for CML2"
+        "cml2-user" = "CML2 user"
+        "cml2-password" = "CML2 password"
+        "ip-address" = "VM's IPv4 address"
+        "os-user" = "OS system user"
+        "os-password" = "OS system password"
     }]
 ```
 
